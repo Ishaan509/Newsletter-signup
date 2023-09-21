@@ -12,7 +12,7 @@ app.get("/",(req,res)=>{
 
 //setting up mailchimp
 mailchimp.setConfig({
-    apiKey: "0c7dc36c57e1e9e8a8b248c658f3d9b1-us11",
+    apiKey: "111c34fb1a319e3728693ef94699d57e-us11",
     server: "us11",
   });
 
@@ -55,9 +55,3 @@ app.post("/failure",(req,res)=>{
 app.listen(process.env.PORT || 3000,()=>{
     console.log("Server is running on port 3000");
 });
-
-// API Key
-// 0c7dc36c57e1e9e8a8b248c658f3d9b1-us11
-
-// List ID
-// ed7c6464cb
