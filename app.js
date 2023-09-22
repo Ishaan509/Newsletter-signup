@@ -1,6 +1,8 @@
 const express=require("express");
 const bodyParser= require("body-parser");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
+const dotenv=require("dotenv");
+dotenv.config();
 const app=express();
 
 app.use(express.static("public"));
@@ -12,7 +14,7 @@ app.get("/",(req,res)=>{
 
 //setting up mailchimp
 mailchimp.setConfig({
-    apiKey: "111c34fb1a319e3728693ef94699d57e-us11",
+    apiKey: process.env.MAILCHIMP_API,
     server: "us11",
   });
 
@@ -22,7 +24,7 @@ app.post("/",(req,res)=>{
     const Email=req.body.mail;
 
     //add a contact to an audience
-    const listid = "ed7c6464cb";
+    const listid = process.env.MAILCHIMP_LISTID;
     const subscribinguser = {
     firstname: firstName,
     lastname: lastName,
